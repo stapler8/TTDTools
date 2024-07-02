@@ -1,12 +1,12 @@
 let weightInput = document.getElementById("weight");
 
-weightInput.addEventListener("change", weightOnChange);
+weightInput.addEventListener("change", calculateTractiveEffort);
 
-function weightOnChange()
+function calculateTractiveEffort()
 {
     let weight = weightInput.value; // "100"
     let outputWeight = parseInt(weight) * 2.2; // 100
 
-    let weightOutput = document.getElementById("weightOutput");
-    weightOutput.innerText = outputWeight.toString();
+    let tractiveEffort = document.getElementById("weightOutput");
+    tractiveEffort.innerText = outputWeight.toString() + "kW";
 }
