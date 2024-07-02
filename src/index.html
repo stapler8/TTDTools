@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="./main.js"></script>
 <link rel="stylesheet" href="./index.css">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,24 @@
 </head>
 <body>
     <div id="divHeader">
+        <h1 style="text-align: center">TTDTools</h1>
+    </div>
 
+    <div>
+        <table>
+            <tr>
+                <label for="weight">
+                    Weight in kg:
+                </label>
+                <form>
+                    <input type="text" id="weight">
+                </form>
+            </tr>
+            <tr>
+                <p id="weightOutput">NONE</p>
+            </tr>
+        </table>
     </div>
 </body>
+<script src="./main.js"></script>
 </html>
