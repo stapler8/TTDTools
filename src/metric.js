@@ -48,7 +48,7 @@ function calculateTractiveEffort(weight, angle, inclineLength, trainLength)
 	}
 	
 	let tractiveEffort = flatEffort + inclineEffort;
-	tractiveEffort = Math.round(tractiveEffort) / 1000;
+	tractiveEffort = Math.round(tractiveEffort / 1000);
 	
 	return tractiveEffort;
 }
