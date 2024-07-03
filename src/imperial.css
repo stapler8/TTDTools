@@ -1,0 +1,61 @@
+body
+{
+    background-color: beige;
+}
+
+#divHeader, #divInputs, #divOutputs, #divSpeedTable, #divEffortTable
+{
+    background-color: lightblue;
+    border: black solid 1px;
+    margin-bottom: 10px;
+}
+
+#inputTable, #inputTable tr td, #inputTable tr th
+{
+    border: black solid 1px;
+    border-collapse: collapse;
+
+    max-width: 1400px;
+}
+
+#divSpeedTable table
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+#divSpeedTable table
+{
+    border: black solid 1px;
+    border-collapse: collapse;
+
+}
+
+#divSpeedTable table, #divSpeedTable h1
+{
+    margin-left: 5px;
+}
+
+#outputTable, #inputTable
+{
+    border-collapse: collapse;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+
+    font-size: large;
+}
+
+#divSpeedTable table tr td, #divSpeedTable table th, #inputTable tr td, #inputTable tr th
+{
+    border: black solid 2px;
+    border-collapse: collapse;
+
+    padding: 6px;
+
+    font-size: large;
+    text-align: center;
+
+    background-color: white;
+}
