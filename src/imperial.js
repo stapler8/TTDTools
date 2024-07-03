@@ -1,17 +1,17 @@
 let trainWeightImperialElement = document.getElementById("trainWeightImperial");
-trainWeightImperialElement.addEventListener("change", calculate);
+trainWeightImperialElement.addEventListener("input", calculate);
 
 let maxSpeedImperialElement = document.getElementById("maxSpeedImperial");
-maxSpeedImperialElement.addEventListener("change", calculate);
+maxSpeedImperialElement.addEventListener("input", calculate);
 
 let angleElement = document.getElementById("inclineAngle");
-angleElement.addEventListener("change", calculate);
+angleElement.addEventListener("input", calculate);
 
 let inclineLengthElement = document.getElementById("maxInclineLength");
-inclineLengthElement.addEventListener("change", calculate);
+inclineLengthElement.addEventListener("input", calculate);
 
 let trainLengthElement = document.getElementById("trainLength");
-trainLengthElement.addEventListener("change", calculate);
+trainLengthElement.addEventListener("input", calculate);
 
 
 function calculate()
@@ -48,16 +48,13 @@ function calculateTractiveEffort(weight, angle, inclineLength, trainLength)
 	{
 		inclineEffort = weight * angle * 100 * (inclineLength / trainLength); // 100N per gradian of incline
 	}
-	
-	let metricEffort = (flatEffort + inclineEffort);
-	
-	return metricEffort;
+
+	return (flatEffort + inclineEffort);
 }
 
 function calculatePower(metricEffort, speedmps)
 {
-	let metricPower = (speedmps * metricEffort);
-	return metricPower;
+	return (speedmps * metricEffort);
 }
 
 function generateSpeedTable(metricEffort)

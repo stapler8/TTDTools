@@ -1,17 +1,17 @@
 let trainWeightMetricElement = document.getElementById("trainWeightMetric");
-trainWeightMetricElement.addEventListener("change", calculate);
+trainWeightMetricElement.addEventListener("input", calculate);
 
 let maxSpeedMetric1Element = document.getElementById("maxSpeedMetric1");
-maxSpeedMetric1Element.addEventListener("change", calculate);
+maxSpeedMetric1Element.addEventListener("input", calculate);
 
 let angleElement = document.getElementById("inclineAngle");
-angleElement.addEventListener("change", calculate);
+angleElement.addEventListener("input", calculate);
 
 let inclineLengthElement = document.getElementById("maxInclineLength");
-inclineLengthElement.addEventListener("change", calculate);
+inclineLengthElement.addEventListener("input", calculate);
 
 let trainLengthElement = document.getElementById("trainLength");
-trainLengthElement.addEventListener("change", calculate);
+trainLengthElement.addEventListener("input", calculate);
 
 
 function calculate()
