@@ -1,8 +1,8 @@
-let trainWeightMetricElement = document.getElementById("trainWeightMetric");
-trainWeightMetricElement.addEventListener("change", calculate);
+let trainWeightImperialElement = document.getElementById("trainWeightImperial");
+trainWeightImperialElement.addEventListener("change", calculate);
 
-let maxSpeedMetric1Element = document.getElementById("maxSpeedMetric1");
-maxSpeedMetric1Element.addEventListener("change", calculate);
+let maxSpeedImperialElement = document.getElementById("maxSpeedImperial");
+maxSpeedImperialElement.addEventListener("change", calculate);
 
 let angleElement = document.getElementById("inclineAngle");
 angleElement.addEventListener("change", calculate);
@@ -16,25 +16,27 @@ trainLengthElement.addEventListener("change", calculate);
 
 function calculate()
 {
-	let weight = parseInt(trainWeightMetricElement.value);
-	let speedmps = parseFloat(maxSpeedMetric1Element.value) / 3.6;
+	let weight = parseFloat(trainWeightImperialElement.value) / 1.02;
+	let speedmps = parseFloat(maxSpeedImperialElement.value) * 0.45; //mph to mps
 	let angle = parseInt(angleElement.value);
 	let inclineLength = parseInt(inclineLengthElement.value);
-	let trainLength = parseInt(trainLengthElement.value);
+	let trainLength = parseFloat(trainLengthElement.value);
 
 	
-	let tractiveEffort = calculateTractiveEffort(weight, angle, inclineLength, trainLength);
+	let metricEffort = calculateTractiveEffort(weight, angle, inclineLength, trainLength);
+	let tractiveEffort = Math.round(metricEffort / 4.45);
 	
 	let tractiveElement = document.getElementById("requiredEffort");
-	tractiveElement.innerText = tractiveEffort.toString() + "kN";	
+	tractiveElement.innerText = tractiveEffort.toString() + " lbf•ft";	
 	
 	
-	let requiredPower = calculatePower(tractiveEffort, speedmps);
+	let metricPower = calculatePower(metricEffort, speedmps);
+	let requiredPower = Math.round(metricPower / 746);
 	
 	let powerElement = document.getElementById("requiredPower");
-	powerElement.innerText = requiredPower.toString() + "kW";
+	powerElement.innerText = requiredPower.toString() + " HP";
 	
-	generateSpeedTable(tractiveEffort);
+	generateSpeedTable(metricEffort);
 }
 
 function calculateTractiveEffort(weight, angle, inclineLength, trainLength)
@@ -44,27 +46,25 @@ function calculateTractiveEffort(weight, angle, inclineLength, trainLength)
 	let inclineEffort = 0;
 	if (trainLength)
 	{
-		inclineEffort = weight * angle * 100 * (inclineLength / trainLength);
+		inclineEffort = weight * angle * 100 * (inclineLength / trainLength); // 100N per gradian of incline
 	}
 	
-	let tractiveEffort = flatEffort + inclineEffort;
-	tractiveEffort = Math.round(tractiveEffort) / 1000;
+	let metricEffort = (flatEffort + inclineEffort);
 	
-	return tractiveEffort;
+	return metricEffort;
 }
 
-function calculatePower(tractiveEffort, speedmps)
+function calculatePower(metricEffort, speedmps)
 {
-	let requiredPower = speedmps * tractiveEffort;
-	requiredPower = Math.round(requiredPower);
-	return requiredPower;
+	let metricPower = (speedmps * metricEffort);
+	return metricPower;
 }
 
-function generateSpeedTable(tractiveEffort)
+function generateSpeedTable(metricEffort)
 {
-	const lowSpeedValues = [20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-	const medSpeedValues = [150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250];
-	const highSpeedValues = [250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750];
+	const lowSpeedValues = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+	const medSpeedValues = [100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+	const highSpeedValues = [200, 225, 250, 275, 300, 325, 350, 375, 400, 425, 450];
 	let speedValues = [lowSpeedValues, medSpeedValues, highSpeedValues];
 
 	let speedTableLow = document.getElementById("speedTableLow");
@@ -85,7 +85,7 @@ function generateSpeedTable(tractiveEffort)
 		for (speed of speeds)
 		{
 			let newHeader = document.createElement("th");
-			newHeader.innerText = speed.toString() + "km/h";
+			newHeader.innerText = speed.toString() + " MPH";
 			headerRow.appendChild(newHeader);
 		}
 		
@@ -97,8 +97,8 @@ function generateSpeedTable(tractiveEffort)
 		for (speed of speeds)
 		{
 			let newCell = document.createElement("td");
-			let speedmps = speed / 3.6;
-			newCell.innerText =  calculatePower(tractiveEffort, speedmps).toString() + "kW";
+			let speedmps = speed * 0.45; //mph to mps
+			newCell.innerText = (Math.round(calculatePower(metricEffort, speedmps) / 746)).toString() + " HP";
 			powerRow.appendChild(newCell);
 		}
 		
