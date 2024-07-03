@@ -11,25 +11,45 @@
     </div>
 
     <div>
-        <table>
-            <tr>
-                <label for="weight">
-                    Weight in tonnes:
-                </label>
-                <form>
-                    <input type="text" id="weight">
-                </form>
-            </tr>
-            <tr>
-                <label for="speed">Speed in KPH</label>
-                <form>
-                    <input type="text" id="speed">
-                </form>
-            </tr>
-            <tr>
-                <p id="tractiveEffort">NONE</p>
-            </tr>
-        </table>
+        <form>
+            <table>
+                <tr>
+                    <label for="trainWeight">
+                        Weight in tonnes:
+                    </label>
+                <input type="text" id="trainWeight" value="800">
+                </tr>
+                <br>
+                <tr>
+                    <label for="maxSpeed">Speed in KPH</label>
+                    <input type="text" id="maxSpeed" value="60">
+                </tr>
+                <br>
+                <tr>
+                    <label for="inclineAngle">Incline Angle</label>
+                    <input type="text" id="inclineAngle" value="3">
+                </tr>
+                <br>
+                <tr>
+                    <label for="maxInclineLength">Max Incline Length</label>
+                    <input type="text" id="maxInclineLength" value="2">
+                </tr>
+                <br>
+                <tr>
+                    <label for="trainLength">Train Length</label>
+                    <input type="text" id="trainLength" value="10">
+                </tr>
+                <br>
+                <br>
+                <tr>
+                    <td id="requiredEffort">N/A</td>
+                </tr>
+                <br>
+                <tr>
+                    <td id="requiredPower">N/A</td>
+                </tr>
+            </table>
+        </form>
     </div>
 </body>
 <script src="./main.js"></script>
