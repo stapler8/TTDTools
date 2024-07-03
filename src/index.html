@@ -10,46 +10,122 @@
         <h1 style="text-align: center">TTDTools</h1>
     </div>
 
-    <div>
-        <form>
-            <table>
-                <tr>
-                    <label for="trainWeight">
-                        Weight in tonnes:
+    <div id="divInputs">
+        <table id="inputTable">
+            <tr>
+                <th>Value</th>
+                <th>Metric</th>
+                <th>Value</th>
+                <th>Metric (cont)</th>
+                <th>Value</th>
+                <th>Imperial</th>
+                <th>Value</th>
+                <th>Imperial (cont)</th>
+            </tr>
+            <tr>
+                <td>
+                    <label for="trainWeightMetric">
+                        Weight in tonnes
                     </label>
-                <input type="text" id="trainWeight" value="800">
-                </tr>
-                <br>
-                <tr>
-                    <label for="maxSpeed">Speed in KPH</label>
-                    <input type="text" id="maxSpeed" value="60">
-                </tr>
-                <br>
-                <tr>
+                </td>
+                <td>
+                    <input type="text" id="trainWeightMetric" value="800">
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    <label for="trainWeightImperial1">
+                        Weight in short tons
+                    </label>
+                </td>
+                <td>
+                    <input type="text" id="trainWeightImperial1">
+                </td>
+                <td>
+                    <label for="trainWeightImperial2">
+                        Weight in long tons
+                    </label>
+                </td>
+                <td>
+                    <input type="text" id="trainWeightImperial2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="maxSpeedMetric1">Speed in km/h</label>
+                </td>
+                <td>
+                    <input type="text" id="maxSpeedMetric1" value="60">
+                </td>
+                <td>
+                    <label for="maxSpeedMetric2">
+                        Speed in m/s
+                    </label>
+                </td>
+                <td>
+                    <input type="text" id="maxSpeedMetric2">
+                </td>
+                <td>
+                    <label for="maxSpeedImperial">
+                        Speed in MPH
+                    </label>
+                </td>
+                <td>
+                    <input type="text" id="maxSpeedImperial">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="inclineAngle">Incline Angle</label>
+                </td>
+                <td>
                     <input type="text" id="inclineAngle" value="3">
-                </tr>
-                <br>
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="maxInclineLength">Max Incline Length</label>
+                </td>
+                <td>
                     <input type="text" id="maxInclineLength" value="2">
-                </tr>
-                <br>
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="trainLength">Train Length</label>
+                </td>
+                <td>
                     <input type="text" id="trainLength" value="10">
-                </tr>
-                <br>
-                <br>
-                <tr>
-                    <td id="requiredEffort">N/A</td>
-                </tr>
-                <br>
-                <tr>
-                    <td id="requiredPower">N/A</td>
-                </tr>
-            </table>
-        </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="divOutputs">
+        <table id="outputTable">
+            <tr>
+                <td>
+                    <p>Required Effort: </p>
+                </td>
+                <td>
+                    <p id="requiredEffort"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Required Power: </p>
+                </td>
+                <td>
+                    <p id="requiredPower"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="divSpeedTable">
+        <table id="speedTable"></table>
+    </div>
+    <div id="divEffortTable">
+        <table id="effortTable"></table>
     </div>
 </body>
 <script src="./main.js"></script>

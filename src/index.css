@@ -1,4 +1,20 @@
-#divHeader
+body
 {
-    background-color: lightsalmon;
+    background-color: beige;
+}
+
+#divHeader, #divInputs, #divOutputs
+{
+    background-color: orange;
+    border: black solid 1px;
+    margin-bottom: 10px;
+}
+
+#inputTable, #inputTable tr td, #inputTable tr th
+{
+    border: black solid 1px;
+    border-collapse: collapse;
+
+    max-width: 1400px;
+
 }
